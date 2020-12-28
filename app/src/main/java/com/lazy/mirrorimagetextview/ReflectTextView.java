@@ -54,6 +54,7 @@ public class ReflectTextView extends AppCompatTextView {
 
     public void setUseReflect(boolean useReflect) {
         isUseReflect = useReflect;
+        invalidate();
     }
 
     public ReflectTextView(Context context, AttributeSet attrs) {
