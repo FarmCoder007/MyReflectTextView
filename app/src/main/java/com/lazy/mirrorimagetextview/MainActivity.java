@@ -30,6 +30,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     ImageView picture_qian;
+    TIView tiview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,13 @@ public class MainActivity extends AppCompatActivity {
         setGradientFont(textView, "#70C6FF", "#4570B5");
 
         picture_qian = findViewById(R.id.picture_qian);
+        tiview = findViewById(R.id.tiview);
 
         setImage();
     }
 
     /**
-     *  搞图片
+     * 搞图片
      */
     private void setImage() {
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -64,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *  计算压缩比
+     * 计算压缩比
+     *
      * @param options
      * @param reqWidth
      * @param reqHeight
@@ -166,7 +169,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     *  吸取主色设置背景
+     * 吸取主色设置背景
+     *
      * @param bitmap
      */
     private void getMainColor(Bitmap bitmap) {
@@ -187,14 +191,14 @@ public class MainActivity extends AppCompatActivity {
                 int four = Color.argb(40, Color.red(mainColor), Color.green(mainColor), Color.blue(mainColor));
                 int five = Color.argb(0, Color.red(mainColor), Color.green(mainColor), Color.blue(mainColor));
                 int colors[] = {one, two, three, four, five};
-
-                GradientDrawable bg = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors);
-                int sdk = android.os.Build.VERSION.SDK_INT;
-                if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                    picture_qian.setBackgroundDrawable(bg);
-                } else {
-                    picture_qian.setBackground(bg);
-                }
+                tiview.setMainColor(colors);
+//                GradientDrawable bg = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors);
+//                int sdk = android.os.Build.VERSION.SDK_INT;
+//                if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+//                    picture_qian.setBackgroundDrawable(bg);
+//                } else {
+//                    picture_qian.setBackground(bg);
+//                }
             }
         });
     }
