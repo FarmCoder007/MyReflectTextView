@@ -30,4 +30,10 @@
         android:text="推荐"
         android:textColor="#FF0000"
         android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/picture_qian"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        />
 </LinearLayout>
